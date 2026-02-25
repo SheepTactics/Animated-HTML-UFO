@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UFO</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #000;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .ufo-wrapper {
+    will-change: transform;
+    animation: hover 3.5s ease-in-out infinite;
+  }
+  @keyframes hover {
+    0%, 100% { transform: translateY(25px); }
+    50%       { transform: translateY(-25px); }
+  }
+  @keyframes lightSpin {
+    0%, 37%, 100% { fill: #003d33; }
+    18%           { fill: #00ffee; }
+  }
+  .rim-light {
+    will-change: fill;
+    animation: lightSpin 0.7s linear infinite;
+  }
+</style>
+</head>
+<body>
+<div class="ufo-wrapper">
+<svg width="360" height="230" viewBox="0 0 360 230">
+  <!-- Gradients -->
+  <defs>
+    <radialGradient id="topGrad" cx="50%" cy="50%" r="60%">
+      <stop offset="0%"   stop-color="#d8eef8"/>
+      <stop offset="40%"  stop-color="#5a9dbe"/>
+      <stop offset="80%"  stop-color="#1e5070"/>
+      <stop offset="100%" stop-color="#0a1c28"/>
+    </radialGradient>
+    <linearGradient id="rimGrad" x1="0" y1="0" x2="0" y2="2">
+      <stop offset="0%"   stop-color="#6aaccc"/>
+      <stop offset="40%"  stop-color="#2a6888"/>
+      <stop offset="100%" stop-color="#091e2c"/>
+    </linearGradient>
+    <radialGradient id="domeGrad" cx="50%" cy="15%" r="75%">
+      <stop offset="0%"   stop-color="#ddf3ff"/>
+      <stop offset="35%"  stop-color="#489cb8"/>
+      <stop offset="100%" stop-color="#07243a"/>
+  </defs>
+  <!-- Underside -->
+  <ellipse cx="180" cy="158" rx="148" ry="20" fill="#162e40" stroke="#3f7a94" stroke-width="1.2"/>
+  <!-- Rim band -->
+  <ellipse cx="180" cy="152" rx="148" ry="14" fill="none" stroke="url(#rimGrad)" stroke-width="16"/>
+  <!-- Top disc -->
+  <ellipse cx="180" cy="140" rx="148" ry="20" fill="url(#topGrad)"stroke="#5688a2" stroke-width="1.3"/>
+  <!-- Rim lights -->
+  <circle class="rim-light" cx="32.0"  cy="153.0" r="5.3" style="animation-delay:0.40s"/>
+  <circle class="rim-light" cx="46.0"  cy="157.7" r="6.0" style="animation-delay:0.35s"/>
+  <circle class="rim-light" cx="77.5"  cy="162.6" r="6.6" style="animation-delay:0.30s"/>
+  <circle class="rim-light" cx="124.5" cy="165.9" r="7.1" style="animation-delay:0.25s"/>
+  <circle class="rim-light" cx="180.0" cy="167.0" r="7.2" style="animation-delay:0.20s"/>
+  <circle class="rim-light" cx="235.5" cy="165.9" r="7.1" style="animation-delay:0.15s"/>
+  <circle class="rim-light" cx="282.5" cy="162.6" r="6.6" style="animation-delay:0.10s"/>
+  <circle class="rim-light" cx="314.0" cy="157.7" r="6.0" style="animation-delay:0.05s"/>
+  <circle class="rim-light" cx="327.0" cy="153.0" r="5.3" style="animation-delay:0.00s"/>
+  <!-- Dome socket -->
+  <ellipse cx="180" cy="131" rx="78" ry="16" fill="#162e40" stroke="#3f7a94" stroke-width="1.2"/>
+  <!-- Dome hemisphere -->
+  <path d="M106,130 Q106,68 180,65 Q254,68 254,130 A74,13 0 0,1 106,130 Z" fill="url(#domeGrad)" stroke="#6699bb" stroke-width="1.3"/>
+</svg>
+</div>
+</body>
+</html>
